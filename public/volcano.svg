@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Mountain -->
+  <path d="M10 90 L50 20 L90 90 Z" fill="#555" stroke="#333" stroke-width="2"/>
+  
+  <!-- Snow/Crater -->
+  <path d="M38 40 L50 20 L62 40 C 55 45 45 45 38 40" fill="#fff" stroke="#333" stroke-width="2"/>
+  
+  <!-- Lava/Smoke -->
+  <path d="M50 20 Q 55 10 50 5 Q 45 10 50 20" fill="#ff4400" opacity="0.8"/>
+  <circle cx="55" cy="10" r="2" fill="#777" opacity="0.6"/>
+  <circle cx="45" cy="12" r="3" fill="#777" opacity="0.6"/>
+  <circle cx="50" cy="2" r="4" fill="#777" opacity="0.6"/>
+</svg>

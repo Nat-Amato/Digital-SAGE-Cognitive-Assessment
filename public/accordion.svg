@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" class="w-full h-full">
+  <!-- Accordion Body -->
+  <rect x="20" y="20" width="20" height="60" rx="2" fill="#333" stroke="#000" stroke-width="2" />
+  <rect x="60" y="20" width="20" height="60" rx="2" fill="#333" stroke="#000" stroke-width="2" />
+  
+  <!-- Bellows -->
+  <path d="M40 25 L60 25 L50 30 Z" fill="#eee" stroke="#000"/>
+  <path d="M40 35 L60 35 L50 40 Z" fill="#eee" stroke="#000"/>
+  <path d="M40 45 L60 45 L50 50 Z" fill="#eee" stroke="#000"/>
+  <path d="M40 55 L60 55 L50 60 Z" fill="#eee" stroke="#000"/>
+  <path d="M40 65 L60 65 L50 70 Z" fill="#eee" stroke="#000"/>
+  <path d="M40 75 L60 75 L50 80 Z" fill="#eee" stroke="#000"/>
+
+  <!-- Keys -->
+  <circle cx="26" cy="30" r="2" fill="white"/>
+  <circle cx="26" cy="40" r="2" fill="white"/>
+  <circle cx="26" cy="50" r="2" fill="white"/>
+  <circle cx="26" cy="60" r="2" fill="white"/>
+  <circle cx="34" cy="35" r="2" fill="white"/>
+  <circle cx="34" cy="45" r="2" fill="white"/>
+  <circle cx="34" cy="55" r="2" fill="white"/>
+</svg>

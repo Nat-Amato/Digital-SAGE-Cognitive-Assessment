@@ -1,0 +1,7 @@
+<svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" stroke="black" stroke-width="2" fill="none">
+  <!-- Isometric Cube -->
+  <path d="M50 10 L85 30 L85 70 L50 90 L15 70 L15 30 Z" />
+  <path d="M50 50 L85 30" />
+  <path d="M50 50 L15 30" />
+  <path d="M50 50 L50 90" />
+</svg>
