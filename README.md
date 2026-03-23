@@ -1,73 +1,49 @@
-# React + TypeScript + Vite
+# Digital SAGE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+**Digital SAGE** is a web-based, interactive implementation of the **Self-Administered Gerocognitive Examination (SAGE)**. SAGE is a self-administered test designed to detect early signs of cognitive, memory, or thinking impairments. It provides a reliable screening tool that can be completed by individuals in a clinical or home setting.
 
-Currently, two official plugins are available:
+This digital version transitions the traditional paper-and-pen test into a modern, accessible experience, leveraging web technologies to facilitate cognitive assessment through a series of structured tasks.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **Comprehensive Anamnesis**: A detailed initial phase to collect personal, educational, and clinical history.
+- **Cognitive Orientation**: Memory-based orientation tasks (e.g., date recall).
+- **Naming & Memory**: Visual identification and memorization exercises.
+- **Reasoning & Calculation**: Logical similarity tests and mathematical problem-solving.
+- **Visuospatial Tasks**: Digital drawing canvas for copying complex figures and clock drawing.
+- **Executive Functioning**: Interactive Trail Making (connecting nodes) and spatial Problem Solving.
+- **Verbal Fluency**: Structured input for categorical fluency testing.
+- **Delayed Recall**: Integrated memory check at the conclusion of the test.
 
-## React Compiler
+## Technology Stack
+- **React 19**: Modern UI library for a responsive and performant interface.
+- **Vite**: Ultra-fast build tool and development server.
+- **TypeScript**: Ensuring type safety and robust code quality.
+- **Tailwind CSS 4**: Utility-first styling for a premium, clean aesthetic.
+- **Framer Motion**: Smooth animations and transitions for an enhanced user experience.
+- **Lucide React**: High-quality iconography.
+- **React Router 7**: Precise navigation and application routing.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
 
-## Expanding the ESLint configuration
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
+1. **Clone the repository**:
+   ```bash
+   git clone [repository-url]
+   cd digital-sage-test
+   ```
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Disclaimer
+*Digital SAGE is a screening tool and does not provide a definitive diagnosis. Results should be interpreted by a healthcare professional.*
