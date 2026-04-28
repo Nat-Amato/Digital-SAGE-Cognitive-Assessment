@@ -1,94 +1,93 @@
 # Digital SAGE
 
-## Descrizione del Progetto e Obiettivi
-**Digital SAGE** è un'implementazione web interattiva del **Self-Administered Gerocognitive Examination (SAGE)**. Il test SAGE è uno strumento auto-amministrato progettato per rilevare i primi segni di disturbi cognitivi, della memoria o del pensiero.
+## Project Description and Goals
+**Digital SAGE** is an interactive web-based implementation of the **Self-Administered Gerocognitive Examination (SAGE)**. The SAGE test is a self-administered screening tool designed to detect early signs of cognitive, memory, or thinking impairments.
 
-L'obiettivo principale del progetto è trasformare il tradizionale test carta-e-penna in un'esperienza digitale moderna e accessibile, ottimizzata per l'uso con tablet e stylus, facilitando la valutazione cognitiva attraverso una serie di compiti strutturati con la possibilità di calcolare automaticamente i punteggi (scoring) parziali.
+The main goal of this project is to transform the traditional paper-and-pen test into a modern, accessible digital experience optimized for use with tablets and styluses. It facilitates cognitive assessment through a series of structured tasks and provides automatic calculation of partial scores.
 
-## Funzionalità Principali
-- **Valutazione Cognitiva Completa**: Include anamnesi iniziale e test per orientamento, linguaggio, ragionamento, visuo-spazialità, funzioni esecutive e memoria.
-- **Input Ibrido (Hybrid Input)**: Supporto per input tramite tastiera o disegno a mano libera (ideale per l'uso con Apple Pencil o stylus).
-- **Canvas Interattivi**: Area di disegno digitale integrata per copiare figure complesse (es. cubo), disegnare orologi e connettere nodi (Trail Making).
-- **Scoring Automatico Parziale**: Algoritmo che calcola punteggi di base e fornisce un'indicazione (es. adeguamento demografico, punteggio per linguaggio e calcolo) con un'interfaccia di revisione finale dei disegni (SageReview) per la valutazione clinica.
-- **Reportistica**: Possibilità di scaricare il report in formato JSON o di stamparlo/salvarlo in PDF.
+## Key Features
+- **Comprehensive Cognitive Assessment**: Includes an initial anamnesis and tests for orientation, language, reasoning, visuospatial abilities, executive functions, and memory.
+- **Hybrid Input**: Support for both keyboard input and freehand drawing (ideal for use with an Apple Pencil or stylus).
+- **Interactive Canvases**: Integrated digital drawing area for copying complex figures (e.g., a cube), drawing clocks, and connecting nodes (Trail Making).
+- **Automatic Partial Scoring**: An algorithm that calculates basic scores and provides an initial indication (e.g., demographic adjustments, language, and calculation scores), alongside a final review interface (`SageReview`) for clinical evaluation of drawings.
+- **Reporting**: Ability to download the report in JSON format or print/save it as a PDF.
 
-## Architettura e Struttura delle Cartelle
-Il progetto è una Single Page Application (SPA) basata su React. Il flusso logico prevede una Home Page introduttiva e una pagina di Test che gestisce lo stato di avanzamento attraverso vari step definiti in un file di configurazione dati.
+## Architecture and Folder Structure
+The project is a Single Page Application (SPA) built with React. The logical flow includes an introductory Home Page and a Test page that manages the progress state through various steps defined in a data configuration file.
 
-Struttura principale:
+Main structure:
 ```text
 digital-sage-test/
-├── public/                 # Asset statici (immagini, svg)
+├── public/                 # Static assets (images, svg)
 └── src/
-    ├── components/         # Componenti UI riutilizzabili (Layout, Header, SimpleButton)
-    │   ├── DrawingCanvas/  # Componente core per l'interazione touch/stylus
-    │   ├── HybridInput/    # Input che accetta sia testo che disegno
-    │   └── SageReview/     # Componente per la revisione finale e lo scoring
-    ├── data/               # Dati statici e configurazione dei passaggi del test (testSteps.ts)
-    ├── lib/                # Utility generali (es. merge delle classi Tailwind)
-    ├── pages/              # Viste principali dell'applicazione (Home.tsx, Test.tsx)
-    ├── utils/              # Logica di business (sageScoring.ts per il calcolo del punteggio)
-    ├── App.tsx             # Entry point del routing dell'applicazione
-    └── main.tsx            # Entry point di React
+    ├── components/         # Reusable UI components (Layout, Header, SimpleButton)
+    │   ├── DrawingCanvas/  # Core component for touch/stylus interaction
+    │   ├── HybridInput/    # Input component accepting both text and drawing
+    │   └── SageReview/     # Component for final review and scoring
+    ├── data/               # Static data and test steps configuration (testSteps.ts)
+    ├── lib/                # General utilities (e.g., Tailwind class merging)
+    ├── pages/              # Main application views (Home.tsx, Test.tsx)
+    ├── utils/              # Business logic (sageScoring.ts for score calculation)
+    ├── App.tsx             # Application routing entry point
+    └── main.tsx            # React entry point
 ```
 
-## Tecnologie Utilizzate
-Lo stack tecnologico è orientato alle performance e all'esperienza utente:
-- **React 19**: Libreria UI moderna per interfacce reattive.
-- **Vite**: Strumento di build e server di sviluppo ultra-veloce.
-- **TypeScript**: Superset di JavaScript per la tipizzazione statica e la robustezza del codice.
-- **Tailwind CSS 4**: Framework CSS utility-first per uno styling rapido e coerente.
-- **Framer Motion**: Libreria per animazioni fluide tra i vari step del test.
-- **Lucide React**: Set di icone di alta qualità.
-- **React Router 7**: Gestione della navigazione (routing client-side).
+## Technologies Used
+The technology stack is performance and user-experience oriented:
+- **React 19**: Modern UI library for reactive interfaces.
+- **Vite**: Ultra-fast build tool and development server.
+- **TypeScript**: A superset of JavaScript providing static typing and code robustness.
+- **Tailwind CSS 4**: A utility-first CSS framework for rapid and consistent styling.
+- **Framer Motion**: Library for smooth animations between test steps.
+- **Lucide React**: High-quality icon set.
+- **React Router 7**: Client-side navigation management.
 
-## Istruzioni di Installazione e Utilizzo
+## Installation and Usage Instructions
 
-### Prerequisiti
-- Node.js (versione 18 o superiore)
-- npm o yarn
+### Prerequisites
+- Node.js (version 18 or higher)
+- npm or yarn
 
-### Setup locale
-1. **Clona il repository**:
+### Local Setup
+1. **Clone the repository**:
    ```bash
    git clone <repository-url>
    cd digital-sage-test
    ```
 
-2. **Installa le dipendenze**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-3. **Avvia il server di sviluppo**:
+3. **Start the development server**:
    ```bash
    npm run dev
    ```
-   L'applicazione sarà disponibile all'indirizzo `http://localhost:5173`.
+   The application will be available at `http://localhost:5173`.
 
-4. **Compilazione per la produzione**:
+4. **Build for production**:
    ```bash
    npm run build
    ```
 
-## Esempi Pratici (Utilizzo)
-- **Compilazione del Test**: L'utente accede dalla Home cliccando "Start the Test". Naviga tra le domande usando i pulsanti "Continue" / "Back". Nei compiti di disegno, può usare il mouse o il touch per disegnare. Per gli input di testo, l'utente può scegliere tra tastiera o modalità scrittura a mano tramite gli appositi toggle.
-- **Fine del Test**: Al termine, viene visualizzata la schermata di "Score Evaluation" (`SageReview`), in cui un esaminatore può visualizzare il punteggio automatico, valutare manualmente i disegni (orologio, cubo, nodi) e inserire i punteggi parziali per ottenere il calcolo totale aggiornato.
+## Practical Examples (Usage)
+- **Taking the Test**: The user starts from the Home page by clicking "Start the Test". They navigate through questions using the "Continue" / "Back" buttons. For drawing tasks, they can use a mouse or touch/stylus to draw. For text inputs, the user can choose between a keyboard or handwriting mode via the designated toggles.
+- **Test Completion**: At the end, the "Score Evaluation" screen (`SageReview`) is displayed. Here, an examiner can view the automatic score, manually evaluate the drawings (clock, cube, trail making), and input partial scores to obtain the updated total score.
 
-## Eventuali Criticità o Limitazioni
-Dall'analisi della codebase sono emerse le seguenti criticità:
-- **Codice Ridondante e File Monolitici**: Il file `src/pages/Test.tsx` è estremamente lungo (>560 righe) e gestisce troppa logica contemporaneamente (rendering condizionale multiplo per i tipi di domande, gestione di stato complessa).
-- **Incoerenza di Naming**: Gli asset all'interno di `/public/images/` mischiano lingue diverse (es. `fisarmonica.png`, `vulcano.png` contro `cube-iso.svg`). Inoltre la gestione dei percorsi è hardcoded nei file di dati.
-- **Debolezze Strutturali nello Scoring**: Il file `sageScoring.ts` è semplificato. Il punteggio di "Orientation" è attualmente hardcoded a `0` e necessita di logica di parsing avanzata. Il controllo sulla fluidità verbale (12 animali) è molto basilare.
-- **Tipizzazione Debole (uso di `any`)**: Sono presenti vari tipi `any` (es. in `HybridInput.tsx` e `sageScoring.ts`) che bypassano i controlli del compilatore TypeScript, riducendo la sicurezza del codice.
-- **Bug Bloccanti in Build**: C'è un'importazione inutilizzata (`React`) nel file `src/components/Header.tsx` che causa un errore `TS6133`, bloccando la build del progetto (`npm run build`).
+## Known Issues and Limitations
+An analysis of the codebase revealed the following critical issues:
+- **Redundant Code and Monolithic Files**: The `src/pages/Test.tsx` file is extremely large (>560 lines) and manages too much logic concurrently (multiple conditional renderings for question types, complex state management).
+- **Inconsistent Naming Conventions**: Assets inside `/public/images/` mix different languages (e.g., `fisarmonica.png`, `vulcano.png` vs. `cube-iso.svg`). Additionally, paths are hardcoded in the data files.
+- **Structural Weaknesses in Scoring**: The `sageScoring.ts` file is overly simplified. The "Orientation" score is currently hardcoded to `0` and requires advanced parsing logic. The verbal fluency check (12 animals) is very basic.
+- **Weak Typing (Use of `any`)**: There are several instances of `any` types (e.g., in `HybridInput.tsx` and `sageScoring.ts`) that bypass TypeScript compiler checks, reducing code safety.
 
-## Possibili Miglioramenti Futuri
-- **Refactoring Componenti**: Dividere `Test.tsx` in sottomoduli dedicati ai vari tipi di step (es. `DrawingStep`, `TextQuestionStep`, `TrailMakingStep`) per facilitarne la manutenzione.
-- **Miglioramento dell'Algoritmo di Scoring**: Implementare l'uso di NLP o regex più complesse per la validazione delle date in orientamento spaziale/temporale e per migliorare l'accuratezza del test del linguaggio (es. animali ripetuti, sinonimi).
-- **Standardizzazione degli Asset e Internazionalizzazione (i18n)**: Uniformare la nomenclatura degli asset (es. tutti i file in inglese) e introdurre un sistema di traduzioni per separare il testo hardcoded dall'interfaccia.
-- **Risoluzione Strict TypeScript**: Rimuovere l'uso di `any` definendo interfacce corrette per gli oggetti di stato e per la mappa di risposte (`answers`).
-- **Validazione Form Avanzata**: Integrare librerie come React Hook Form e Zod per una gestione più robusta dello stato del form e la validazione dei dati dell'anamnesi.
+## Possible Future Improvements
+- **Component Refactoring**: Split `Test.tsx` into dedicated sub-modules for various step types (e.g., `DrawingStep`, `TextQuestionStep`, `TrailMakingStep`) to improve maintainability.
+- **Scoring Algorithm Enhancement**: Implement NLP or complex regex for date validation in spatial/temporal orientation and to improve language test accuracy (e.g., handling repeated animals, synonyms).
+- **Asset Standardization and Internationalization (i18n)**: Standardize asset naming (e.g., all files in English) and introduce a translation system to separate hardcoded text from the UI.
+- **Strict TypeScript Resolution**: Remove the use of `any` by defining proper interfaces for state objects and the answers map.
+- **Advanced Form Validation**: Integrate libraries like React Hook Form and Zod for more robust form state management and anamnesis data validation.
 
 ---
-*Disclaimer: Digital SAGE è uno strumento di screening e non fornisce una diagnosi definitiva. I risultati devono essere sempre interpretati da un professionista sanitario clinico.*
+*Disclaimer: Digital SAGE is a screening tool and does not provide a definitive diagnosis. Results should always be interpreted by a clinical healthcare professional.*
