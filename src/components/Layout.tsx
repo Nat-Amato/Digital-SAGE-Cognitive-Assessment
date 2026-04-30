@@ -8,8 +8,6 @@ export default function Layout() {
     const steps = [
         { path: '/', label: 'Home', icon: FileText },
         { path: '/test', label: 'SAGE Test', icon: PenTool },
-        // Scoring is usually hidden or separate, but we'll show it for dev/demo
-        // { path: '/scoring', label: 'Evaluation', icon: CheckCircle }, 
     ];
 
     return (
