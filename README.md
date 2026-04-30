@@ -75,13 +75,6 @@ The technology stack is performance and user-experience oriented:
 - **Taking the Test**: The user starts from the Home page by clicking "Start the Test". They navigate through questions using the "Continue" / "Back" buttons. For drawing tasks, they can use a mouse or touch/stylus to draw. For text inputs, the user can choose between a keyboard or handwriting mode via the designated toggles.
 - **Test Completion**: At the end, the "Score Evaluation" screen (`SageReview`) is displayed. Here, an examiner can view the automatic score, manually evaluate the drawings (clock, cube, trail making), and input partial scores to obtain the updated total score.
 
-## Known Issues and Limitations
-An analysis of the codebase revealed the following critical issues:
-- **Redundant Code and Monolithic Files**: The `src/pages/Test.tsx` file is extremely large (>560 lines) and manages too much logic concurrently (multiple conditional renderings for question types, complex state management).
-- **Inconsistent Naming Conventions**: Assets inside `/public/images/` mix different languages (e.g., `fisarmonica.png`, `vulcano.png` vs. `cube-iso.svg`). Additionally, paths are hardcoded in the data files.
-- **Structural Weaknesses in Scoring**: The `sageScoring.ts` file is overly simplified. The "Orientation" score is currently hardcoded to `0` and requires advanced parsing logic. The verbal fluency check (12 animals) is very basic.
-- **Weak Typing (Use of `any`)**: There are several instances of `any` types (e.g., in `HybridInput.tsx` and `sageScoring.ts`) that bypass TypeScript compiler checks, reducing code safety.
-
 ## Possible Future Improvements
 - **Component Refactoring**: Split `Test.tsx` into dedicated sub-modules for various step types (e.g., `DrawingStep`, `TextQuestionStep`, `TrailMakingStep`) to improve maintainability.
 - **Scoring Algorithm Enhancement**: Implement NLP or complex regex for date validation in spatial/temporal orientation and to improve language test accuracy (e.g., handling repeated animals, synonyms).
