@@ -79,7 +79,7 @@ To start the local development environment and view the application:
 **Concrete Usage Examples:**
 - **Taking the Test:** From the Home page, click "Start the Test". Navigate through the questions using the "Continue" and "Back" buttons.
 - **Hybrid Interaction:** For input fields, the user can toggle between a keyboard and freehand writing. In drawing areas (such as the clock drawing test or Trail Making), the user can draw using a mouse, touch, or a capacitive stylus (e.g., Apple Pencil).
-- **Evaluation (Review):** At the end of the test, the application automatically calculates an initial partial score (considering age, education, calculation, and textual elements). The final clinical view (`SageReview`) allows a human evaluator to analyze the drawings and input manual scores to generate the total score.
+- **Evaluation (Review):** At the end of the test, the application automatically calculates an initial partial score (considering age, education, calculation, and textual elements). The final clinical view (SageReview component) allows a human evaluator to analyze the drawings and input manual scores to generate the total score.
 
 ## 🔄 Workflows and CI/CD
 Local workflows are managed via the npm scripts defined in `package.json`:
