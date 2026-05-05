@@ -78,7 +78,7 @@ To start the local development environment and view the application:
 
 **Concrete Usage Examples:**
 - **Taking the Test:** From the Home page, click "Start the Test". Navigate through the questions using the "Continue" and "Back" buttons.
-- **Hybrid Interaction:** For input fields, the user can toggle between a keyboard and freehand writing. In drawing areas (such as the clock drawing test or Trail Making), the user can draw using a mouse, touch, or a capacitive stylus (e.g., Apple Pencil).
+- **Stylus-First Interaction:** To best simulate the traditional pen-and-paper experience, the primary interaction method is through freehand drawing using a capacitive stylus (e.g., Apple Pencil) on a tablet. This applies to both input fields and dedicated drawing areas (such as the clock drawing test or Trail Making). A keyboard input fallback is available and can be toggled on, but should only be used if absolutely necessary.
 - **Evaluation (Review):** At the end of the test, the application automatically calculates an initial partial score (considering age, education, calculation, and textual elements). The final clinical view (SageReview component) allows a human evaluator to analyze the drawings and input manual scores to generate the total score.
 
 ## 🔄 Workflows and CI/CD
