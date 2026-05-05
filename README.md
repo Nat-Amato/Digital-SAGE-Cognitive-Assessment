@@ -1,86 +1,115 @@
 # Digital SAGE
+![Version](https://img.shields.io/badge/version-0.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-AGPL--3.0-green.svg)
+![React](https://img.shields.io/badge/react-19.2.0-61DAFB.svg?logo=react)
+![TypeScript](https://img.shields.io/badge/typescript-5.9.3-3178C6.svg?logo=typescript)
 
-## Project Description and Goals
-**Digital SAGE** is an interactive web-based implementation of the **Self-Administered Gerocognitive Examination (SAGE)**. The SAGE test is a self-administered screening tool designed to detect early signs of cognitive, memory, or thinking impairments.
+**Digital SAGE** is an interactive, web-based implementation of the **Self-Administered Gerocognitive Examination (SAGE)**. The SAGE test is a self-administered screening tool designed to detect early signs of cognitive, memory, or thinking impairments.
 
-The main goal of this project is to transform the traditional paper-and-pen test into a modern, accessible digital experience optimized for use with tablets and styluses. It facilitates cognitive assessment through a series of structured tasks and provides automatic calculation of partial scores.
+The main goal of this project is to transform the traditional paper-and-pen test into a modern and accessible digital experience, optimized for use with tablets and styluses. It facilitates cognitive assessment through a series of structured tasks and provides automatic calculation of partial scores.
 
-## Key Features
-- **Comprehensive Cognitive Assessment**: Includes an initial anamnesis and tests for orientation, language, reasoning, visuospatial abilities, executive functions, and memory.
-- **Hybrid Input**: Support for both keyboard input and freehand drawing (ideal for use with an Apple Pencil or stylus).
-- **Interactive Canvases**: Integrated digital drawing area for copying complex figures (e.g., a cube), drawing clocks, and connecting nodes (Trail Making).
-- **Automatic Partial Scoring**: An algorithm that calculates basic scores and provides an initial indication (e.g., demographic adjustments, language, and calculation scores), alongside a final review interface (`SageReview`) for clinical evaluation of drawings.
-- **Reporting**: Ability to download the report in JSON format or print/save it as a PDF.
+## 📑 Index
+- [Architecture and Structure](#%EF%B8%8F-architecture-and-structure)
+- [Prerequisites and Dependencies](#-prerequisites-and-dependencies)
+- [Installation and Setup](#-installation-and-setup)
+- [Usage](#-usage)
+- [Workflows and CI/CD](#-workflows-and-cicd)
+- [Contributing and License](#-contributing-and-license)
 
-## Architecture and Folder Structure
-The project is a Single Page Application (SPA) built with React. The logical flow includes an introductory Home Page and a Test page that manages the progress state through various steps defined in a data configuration file.
+## 🏗️ Architecture and Structure
+The project is a Single Page Application (SPA) built with **React 19** and **TypeScript**, using **Vite** as the bundler. The user interface is styled using **Tailwind CSS 4** and animations are handled with **Framer Motion**. Client-side navigation is implemented with **React Router 7**.
 
-Main structure:
+The logic is divided between the user interface (Pages and Components) and state/evaluation configurations (Data and Utils). The scoring evaluation and results are implemented in the code but separated from the active routes to facilitate clinical review.
+
+**Key Directory Tree:**
 ```text
 digital-sage-test/
-├── public/                 # Static assets (images, svg)
+├── public/                 # Static assets (images, SVG icons)
 └── src/
     ├── components/         # Reusable UI components (Layout, Header, SimpleButton)
     │   ├── DrawingCanvas/  # Core component for touch/stylus interaction
-    │   ├── HybridInput/    # Input component accepting both text and drawing
-    │   └── SageReview/     # Component for final review and scoring
-    ├── data/               # Static data and test steps configuration (testSteps.ts)
+    │   ├── HybridInput/    # Hybrid input for text and freehand drawing
+    │   └── SageReview/     # Component for final review and score calculation
+    ├── data/               # Static data and test step configurations (testSteps.ts)
     ├── lib/                # General utilities (e.g., Tailwind class merging)
     ├── pages/              # Main application views (Home.tsx, Test.tsx)
-    ├── utils/              # Business logic (sageScoring.ts for score calculation)
-    ├── App.tsx             # Application routing entry point
-    └── main.tsx            # React entry point
+    ├── utils/              # Business logic (e.g., sageScoring.ts for calculations)
+    ├── App.tsx             # React routing entry point
+    └── main.tsx            # React application entry point
 ```
 
-## Technologies Used
-The technology stack is performance and user-experience oriented:
-- **React 19**: Modern UI library for reactive interfaces.
-- **Vite**: Ultra-fast build tool and development server.
-- **TypeScript**: A superset of JavaScript providing static typing and code robustness.
-- **Tailwind CSS 4**: A utility-first CSS framework for rapid and consistent styling.
-- **Framer Motion**: Library for smooth animations between test steps.
-- **Lucide React**: High-quality icon set.
-- **React Router 7**: Client-side navigation management.
+## 📦 Prerequisites and Dependencies
+To run the project locally, the following tools are required:
+- **Node.js**: Version 18 or higher (LTS version recommended)
+- **npm** (Node Package Manager) or **Yarn**
 
-## Installation and Usage Instructions
+**Technology Stack and Main Dependencies:**
+- `react` / `react-dom` (^19.2.0)
+- `react-router-dom` (^7.12.0)
+- `tailwindcss` (^4.1.18) & `@tailwindcss/postcss`
+- `framer-motion` (^12.25.0) for animations
+- `lucide-react` (^0.562.0) for icons
+- `typescript` (~5.9.3)
+- `vite` (^7.2.4)
 
-### Prerequisites
-- Node.js (version 18 or higher)
-- npm or yarn
+## 🚀 Installation and Setup
+Follow these steps to configure your local development environment:
 
-### Local Setup
-1. **Clone the repository**:
+1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
+   git clone <REPOSITORY_URL>
    cd digital-sage-test
    ```
 
-2. **Install dependencies**:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. **Start the development server**:
+## 💻 Usage
+To start the local development environment and view the application:
+
+1. **Start the development server:**
    ```bash
    npm run dev
    ```
-   The application will be available at `http://localhost:5173`.
+2. **Access the application:**
+   Open your browser and navigate to `http://localhost:5173`.
 
-4. **Build for production**:
-   ```bash
-   npm run build
-   ```
+**Concrete Usage Examples:**
+- **Taking the Test:** From the Home page, click "Start the Test". Navigate through the questions using the "Continue" and "Back" buttons.
+- **Stylus-First Interaction:** To best simulate the traditional pen-and-paper experience, the primary interaction method is through freehand drawing using a capacitive stylus (e.g., Apple Pencil) on a tablet. This applies to both input fields and dedicated drawing areas (such as the clock drawing test or Trail Making). A keyboard input fallback is available and can be toggled on, but should only be used if absolutely necessary.
+- **Evaluation (Review):** At the end of the test, the application automatically calculates an initial partial score (considering age, education, calculation, and textual elements). The final clinical view (SageReview component) allows a human evaluator to analyze the drawings and input manual scores to generate the total score.
 
-## Practical Examples (Usage)
-- **Taking the Test**: The user starts from the Home page by clicking "Start the Test". They navigate through questions using the "Continue" / "Back" buttons. For drawing tasks, they can use a mouse or touch/stylus to draw. For text inputs, the user can choose between a keyboard or handwriting mode via the designated toggles.
-- **Test Completion**: At the end, the "Score Evaluation" screen (`SageReview`) is displayed. Here, an examiner can view the automatic score, manually evaluate the drawings (clock, cube, trail making), and input partial scores to obtain the updated total score.
+## 🔄 Workflows and CI/CD
+Local workflows are managed via the npm scripts defined in `package.json`:
 
-## Possible Future Improvements
-- **Component Refactoring**: Split `Test.tsx` into dedicated sub-modules for various step types (e.g., `DrawingStep`, `TextQuestionStep`, `TrailMakingStep`) to improve maintainability.
-- **Scoring Algorithm Enhancement**: Implement NLP or complex regex for date validation in spatial/temporal orientation and to improve language test accuracy (e.g., handling repeated animals, synonyms).
-- **Asset Standardization and Internationalization (i18n)**: Standardize asset naming (e.g., all files in English) and introduce a translation system to separate hardcoded text from the UI.
-- **Strict TypeScript Resolution**: Remove the use of `any` by defining proper interfaces for state objects and the answers map.
-- **Advanced Form Validation**: Integrate libraries like React Hook Form and Zod for more robust form state management and anamnesis data validation.
+- **Development:** Starts the Vite server in watch mode.
+  ```bash
+  npm run dev
+  ```
+- **Build:** Executes type checking with TypeScript and generates the optimized build with Vite in the `dist` folder.
+  ```bash
+  npm run build
+  ```
+- **Linting:** Analyzes the code to detect stylistic issues and errors using ESLint.
+  ```bash
+  npm run lint
+  ```
+- **Preview:** Starts a local server to test the production build.
+  ```bash
+  npm run preview
+  ```
 
----
-*Disclaimer: Digital SAGE is a screening tool and does not provide a definitive diagnosis. Results should always be interpreted by a clinical healthcare professional.*
+## 🤝 Contributing and License
+
+### Contributing
+To contribute to the project:
+1. Fork the repository.
+2. Create a branch for your feature (`git checkout -b feature/new-feature`).
+3. Apply your changes and ensure there are no errors (`npm run lint` and `npm run build`).
+4. Submit a Pull Request detailing the changes introduced.
+
+### License
+This project is distributed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**.
+See the `LICENSE` file in the repository for full details.
